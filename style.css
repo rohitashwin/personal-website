@@ -1,5 +1,6 @@
 body {
   font-family:
+    "Inter",
     "Arimo",
     "Helvetica Neue",
     "IBM Plex Sans", sans-serif;
@@ -12,9 +13,8 @@ body {
 
 .container {
   display: flex;
-  max-width: 1000px;
+  max-width: 900px;
   margin: 4rem auto;
-  gap: 1rem;
   padding: 0 1rem;
 }
 
@@ -23,6 +23,7 @@ body {
   position: sticky;
   top: 4rem;
   align-self: flex-start;
+  margin-left: 2rem;
 }
 
 .profile-pic {
@@ -61,7 +62,7 @@ body {
 
 .right-column {
   flex: 1;
-  padding-left: 2rem;
+  margin-left: 1rem;
 }
 
 section {
@@ -133,7 +134,6 @@ a:hover {
   .container {
     flex-direction: column;
     margin: 2rem auto;
-    gap: 0;
   }
 
   .left-column {
@@ -145,7 +145,6 @@ a:hover {
 
   .right-column {
     border-left: none;
-    padding-left: 0;
   }
 
   .profile-pic {
