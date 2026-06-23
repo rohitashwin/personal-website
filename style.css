@@ -616,6 +616,72 @@ body {
   margin-top: -1px;
 }
 
+/* Animated Background Blobs (Aero Aurora Vibe) */
+.bg-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.25;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.bg-blob-blue {
+  top: -15%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #52a3ff 0%, rgba(82, 163, 255, 0) 70%);
+  animation: floatBlob1 25s ease-in-out infinite alternate;
+}
+
+.bg-blob-cyan {
+  bottom: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #a2d7ff 0%, rgba(162, 215, 255, 0) 70%);
+  animation: floatBlob2 30s ease-in-out infinite alternate;
+}
+
+@keyframes floatBlob1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(80px, 50px) scale(1.15); }
+  100% { transform: translate(-40px, 90px) scale(0.9); }
+}
+
+@keyframes floatBlob2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-100px, -60px) scale(0.9); }
+  100% { transform: translate(60px, 40px) scale(1.1); }
+}
+
+/* Glass Striped Diagonal Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(255, 255, 255, 0.04) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 60px 60px;
+  animation: scrollStripes 12s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scrollStripes {
+  from { background-position: 0 0; }
+  to { background-position: 60px 60px; }
+}
+
 /* Responsive Scaling */
 @media (max-width: 768px) {
   .header-clock {
