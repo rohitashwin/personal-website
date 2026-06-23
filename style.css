@@ -816,6 +816,7 @@ body::before {
     border-radius: 50%;
     border-width: 3px;
     margin: 0;
+    object-fit: cover;
   }
 
   .contact-list {
