@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ashwin Rohit Alagiri Rajan - Computer Engineering Master's Student at UC San Diego. Research in computer architecture, robotics, and hardware acceleration.">
+  <meta name="description" content="Ashwin Rohit Alagiri Rajan - Computer Engineering Student at UC San Diego. Research in computer architecture, robotics, and hardware acceleration.">
   <title>Ashwin Rohit Alagiri Rajan | UCSD Academic Page</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
@@ -23,8 +23,15 @@
     
     <!-- Header Block -->
     <header class="window-header">
-      <h1 class="site-title">Ashwin Rohit Alagiri Rajan</h1>
-      <p class="site-subtitle">Computer Engineering Master's Student @ UC San Diego</p>
+      <div class="header-titles">
+        <h1 class="site-title">Ashwin Rohit Alagiri Rajan</h1>
+        <p class="site-subtitle">Computer Engineering @ UC San Diego</p>
+      </div>
+
+      <!-- Live Digital Clock Widget on the top right -->
+      <div class="header-clock">
+        <i class="fa-regular fa-clock"></i> <span id="current-time"></span>
+      </div>
     </header>
 
     <!-- Aqua / Aero Glossy Gradient Navigation -->
@@ -92,7 +99,7 @@
         <section id="about" class="tab-content active">
           <h2 class="section-heading">About Me</h2>
           <p class="bio-text">
-            I am a Master's student in Computer Engineering at the University of California, San Diego, advised by Prof. Hadi Esmaeilzadeh. My research interests center on computer architecture, with a particular focus on designing custom hardware accelerators for robotics and secure LLM inference, as well as repurposing old hardware to support sustainable, green computing.
+            I am a student in Computer Engineering at the University of California, San Diego, advised by Prof. Hadi Esmaeilzadeh. My research interests center on computer architecture, with a particular focus on designing custom hardware accelerators for robotics and secure LLM inference, as well as repurposing old hardware to support sustainable, green computing.
           </p>
 
           <h2 class="section-heading" style="margin-top: 40px;">News</h2>
@@ -124,7 +131,7 @@
               J. Switzer, S. Katel, J. C. Lee, <strong>A. R. A. Rajan</strong>, R. Kastner, P. Pannuto.
             </p>
             <p class="pub-venue">
-              IEEE 15th International Green and Sustainable Computing Conference (IGSC), 2024
+              IEEE 15th International Green and Sustainable Computing Conference (IGSC) &bull; Oct 22, 2024
             </p>
             <div class="pub-links">
               <a href="https://ieeexplore.ieee.org/document/10765841" class="btn-pub btn-pub-primary" target="_blank" rel="noopener noreferrer">
@@ -151,6 +158,7 @@
         <section id="experience" class="tab-content">
           <h2 class="section-heading">Experience</h2>
           
+          <div class="timeline-year">2023 - Present</div>
           <div class="experience-card">
             <h3 class="exp-role">Graduate Research Assistant</h3>
             <div class="exp-org">ACT Lab, UCSD <span>Sept 2023 - Present</span></div>
@@ -159,6 +167,7 @@
             </p>
           </div>
 
+          <div class="timeline-year">2023 - 2024</div>
           <div class="experience-card">
             <h3 class="exp-role">Graduate Teaching Assistant & Researcher</h3>
             <div class="exp-org">Kastner Research Group, UCSD <span>Jan 2023 - June 2024</span></div>
@@ -167,6 +176,7 @@
             </p>
           </div>
 
+          <div class="timeline-year">2023</div>
           <div class="experience-card">
             <h3 class="exp-role">Graduate Research Intern</h3>
             <div class="exp-org">Qualcomm Institute, UCSD <span>Mar 2023 - Sept 2023</span></div>
@@ -260,6 +270,28 @@
         bibBox.style.display = 'block';
       }
     }
+
+    // Header clock update logic (Forces UCSD Pacific Time)
+    function updateClock() {
+      const now = new Date();
+      const options = { 
+        timeZone: 'America/Los_Angeles',
+        month: 'short', 
+        day: '2-digit', 
+        year: 'numeric', 
+        hour: '2-digit', 
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true 
+      };
+      const clockEl = document.getElementById('current-time');
+      if (clockEl) {
+        const formatted = now.toLocaleString('en-US', options);
+        clockEl.textContent = formatted.replace(',', ' -') + ' (UCSD)';
+      }
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
   </script>
 </body>
 </html>
