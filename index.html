@@ -14,7 +14,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   
   <!-- Custom Styling (Aero / Aqua Theme) -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
   <!-- Animated Background Blobs (Aero Aurora) -->
@@ -32,8 +32,8 @@
       </div>
 
       <!-- Live Digital Clock Widget on the top right -->
-      <div class="header-clock">
-        <i class="fa-regular fa-clock"></i> <span id="current-time"></span>
+      <div id="clock-widget" class="header-clock">
+        <i id="clock-icon" class="fa-regular fa-clock"></i> <span id="current-time"></span>
       </div>
     </header>
 
@@ -288,7 +288,7 @@
       }
     }
 
-    // Header clock update logic (Forces UCSD Pacific Time)
+    // Header clock update logic (Forces UCSD Pacific Time & Day/Night Themes)
     function updateClock() {
       const now = new Date();
       const options = { 
@@ -301,10 +301,35 @@
         second: '2-digit',
         hour12: true 
       };
+      
       const clockEl = document.getElementById('current-time');
       if (clockEl) {
         const formatted = now.toLocaleString('en-US', options);
         clockEl.textContent = formatted.replace(',', ' -') + ' (UCSD)';
+      }
+
+      // Check the current hour in UCSD (Pacific Time, 24h format)
+      const ucsdHourStr = now.toLocaleTimeString('en-US', { 
+        timeZone: 'America/Los_Angeles', 
+        hour: '2-digit', 
+        hour12: false 
+      });
+      const hour = parseInt(ucsdHourStr, 10);
+      const isDay = hour >= 6 && hour < 18; // Day is 6:00 AM to 5:59 PM
+
+      const widgetEl = document.getElementById('clock-widget');
+      const iconEl = document.getElementById('clock-icon');
+
+      if (widgetEl && iconEl) {
+        if (isDay) {
+          widgetEl.classList.remove('night-theme');
+          widgetEl.classList.add('day-theme');
+          iconEl.className = 'fa-solid fa-sun';
+        } else {
+          widgetEl.classList.remove('day-theme');
+          widgetEl.classList.add('night-theme');
+          iconEl.className = 'fa-solid fa-moon';
+        }
       }
     }
     setInterval(updateClock, 1000);
