@@ -818,7 +818,7 @@ body::before {
     padding: 20px 15px;
     display: grid;
     grid-template-columns: 95px 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 50px 50px auto;
     grid-gap: 10px 16px;
     align-items: center;
   }
@@ -827,15 +827,15 @@ body::before {
     grid-column: 1;
     grid-row: 1 / span 2;
     width: 95px;
-    height: 95px;
+    height: 110px;
     margin: 0;
     flex-shrink: 0;
   }
 
   .profile-img {
     width: 95px;
-    height: 95px;
-    border-radius: 50%;
+    height: 110px;
+    border-radius: 8px;
     border-width: 3px;
     margin: 0;
     object-fit: cover;
@@ -849,7 +849,7 @@ body::before {
     font-size: 11.5px;
     width: max-content;
     justify-self: start;
-    align-self: center;
+    align-self: start;
   }
 
   /* Re-align Interests list to pill capsules */
@@ -861,7 +861,7 @@ body::before {
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid #e2e8f0;
     border-radius: 6px;
-    align-self: center;
+    align-self: end;
     justify-self: start;
   }
 
