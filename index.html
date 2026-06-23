@@ -1,100 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ashwin Rohit Alagiri Rajan - Computer Engineering Master's Student at UC San Diego. Research in computer architecture, robotics, and hardware acceleration.">
+  <title>Ashwin Rohit Alagiri Rajan | UCSD Academic Page</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;700&display=swap">
+  
+  <!-- FontAwesome Icons for 2012-2016 style sidebar list accents -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Custom Styling (Aero / Aqua Theme) -->
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Sans:wght@400;700&display=swap">
-  <title>Ashwin Rohit Alagiri Rajan</title>
 </head>
-
 <body>
-  <div class="main-container">
-    <div class="left-container">
-      <img src="assets/profile_picture.png" class="profile-picture" alt="Ashwin Rohit Alagiri Rajan">
-      <h1 class="profile-name">Ashwin Rohit Alagiri Rajan</h1>
-      <h2 class="school-name">University of California, San Diego</h2>
-      <div class="contact-info">
-        <a href="mailto:aalagiri@ucsd.edu">aalagiri@ucsd.edu</a>
-        <a href="https://www.github.com/rohitashwin">github</a>
-        <a href="assets/resume.pdf">cv</a>
-      </div>
-    </div>
-    <div class="right-container">
-      <div class="about-me">
-        <h2 class="section-title">About Me</h2>
-        <div class="section-content">
-          <p>I am a Master's student in Computer Engineering at UC San Diego, advised by Prof. Hadi Esmaeilzadeh. My
-            research focuses on computer architecture, with projects in designing custom accelerators for robotics and
-            secure LLM inference, and repurposing hardware for sustainable computing.</p>
-        </div>
-      </div>
-      <div class="research-interests">
-        <h2 class="section-title">Research Interests</h2>
-        <div class="section-content">
-          <p>I'm interested in <strong>Computer Architecture</strong>, <strong>Robotics</strong>, and <strong>LLM accelerators</strong>.</p>
-        </div>
-      </div>
-      <div class="experience">
-        <h2 class="section-title">Experience</h2>
-        <div class="section-content">
-          <h3 class="job-title">ACT Lab, UCSD</h3>
-          <p class="job-details">
-            Designed and simulated custom hardware accelerators for robotics and secure LLM inference workloads, gaining
-            experience in full-stack system design and performance analysis.
-          </p>
-          <h3 class="job-title">Kastner Research Group, UCSD</h3>
-          <p class="job-details">
-            Developed course material for parallel programming course. Worked as TA for CSE 160, Prof. Ryan's parallel
-            programming course. Contributed to research on sustainable computing, published at IGSC-'24, gaining
-            experience in benchmarking and performance analysis.
-          </p>
-          <h3 class="job-title">Qualcomm Institute, UCSD</h3>
-          <p class="job-details">
-            Developed systems for computing HRTF models based on 3D scans of human head models. Tested in AR/VR setup
-            along with real-time audio ray tracing setup.
-          </p>
-        </div>
-      </div>
-      <div class="publications">
-        <h2 class="section-title">Publications</h2>
-        <div class="section-content">
-          <h3 class="publication-title">
-            "Reducing the Carbon Footprint of EdTech with Repurposed Devices"
-          </h3>
-          <p class="publication-details">
-            J. Switzer, S. Katel, J. C. Lee, A. R. A. Rajan, R. Kastner, P. Pannuto.
-            IEEE 15th International Green and Sustainable Computing Conference (IGSC), 2024
-          </p>
-          <a href="https://ieeexplore.ieee.org/document/10765841" class="publication-link">[Paper]</a>
-        </div>
-      </div>
-      <div class="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="section-content">
-          <h3 class="project-title">Autonomous UAV</h3>
-          <p class="project-details">
-            Developed an autonomous UAV using PX4 and Jetson nano, implementing computer vision algorithms for obstacle
-            avoidance and SLAM. <a href="https://github.com/rohitashwin/autonomous-uav/">[Github]</a>
-          </p>
-          <h3 class="project-title">
-            Relativity Simulator
-          </h3>
-          <p class="project-details">
-            A C++ based renderer for visualizing special relativity effects using path tracing. <a
-              href="https://rohitashwin.github.io/Raytracing-Relativistic-Bodies/">[Demo]</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
 
+  <!-- Window Wrapper imitating Aero / Aqua Glass Container -->
+  <div class="window-container">
+    
+    <!-- Header Block -->
+    <header class="window-header">
+      <h1 class="site-title">Ashwin Rohit Alagiri Rajan</h1>
+      <p class="site-subtitle">Computer Engineering Master's Student @ UC San Diego</p>
+    </header>
+
+    <!-- Aqua / Aero Glossy Gradient Navigation -->
+    <nav class="aero-navbar">
+      <a class="aero-nav-item active" data-tab="about">
+        <i class="fa-solid fa-user"></i> About
+      </a>
+      <a class="aero-nav-item" data-tab="publications">
+        <i class="fa-solid fa-book"></i> Publications
+      </a>
+      <a class="aero-nav-item" data-tab="experience">
+        <i class="fa-solid fa-briefcase"></i> Experience
+      </a>
+      <a class="aero-nav-item" data-tab="projects">
+        <i class="fa-solid fa-code"></i> Projects
+      </a>
+    </nav>
+
+    <!-- Main Layout Grid -->
+    <div class="main-layout">
+      
+      <!-- Left Sidebar Column -->
+      <aside class="sidebar">
+        <!-- Profile Picture Panel -->
+        <div class="profile-wrapper">
+          <img src="assets/profile_picture.png" class="profile-img" alt="Ashwin Rohit Alagiri Rajan">
+        </div>
+        
+        <!-- Contact & Links List -->
+        <ul class="contact-list">
+          <li class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:aalagiri@ucsd.edu">aalagiri@ucsd.edu</a>
+          </li>
+          <li class="contact-item">
+            <i class="fa-brands fa-github"></i>
+            <a href="https://www.github.com/rohitashwin" target="_blank" rel="noopener noreferrer">rohitashwin</a>
+          </li>
+          <li class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>La Jolla, California</span>
+          </li>
+        </ul>
+
+        <!-- Download CV Action -->
+        <a href="assets/resume.pdf" class="btn-aqua" target="_blank">
+          <i class="fa-solid fa-file-pdf"></i> Download CV / Resume
+        </a>
+
+        <!-- Research Interests Sidebar Block -->
+        <div class="sidebar-box">
+          <h4>Interests</h4>
+          <ul>
+            <li>Computer Architecture</li>
+            <li>Robotics</li>
+            <li>LLM Accelerators</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Right Main Content Panel -->
+      <main class="content-area">
+        
+        <!-- Tab 1: About Me -->
+        <section id="about" class="tab-content active">
+          <h2 class="section-heading">About Me</h2>
+          <p class="bio-text">
+            I am a Master's student in Computer Engineering at the University of California, San Diego, advised by Prof. Hadi Esmaeilzadeh. My research interests center on computer architecture, with a particular focus on designing custom hardware accelerators for robotics and secure LLM inference, as well as repurposing old hardware to support sustainable, green computing.
+          </p>
+
+          <h2 class="section-heading" style="margin-top: 40px;">News</h2>
+          <ul class="news-list">
+            <li class="news-item">
+              <span class="news-date">Oct 2024</span>
+              <span class="news-desc">Presented our research paper <em>"Reducing the Carbon Footprint of EdTech with Repurposed Devices"</em> at the IEEE 15th International Green and Sustainable Computing Conference (IGSC) in Chicago!</span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">Sep 2023</span>
+              <span class="news-desc">Joined the ACT Lab at UC San Diego under the guidance of Prof. Hadi Esmaeilzadeh.</span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">Mar 2023</span>
+              <span class="news-desc">Began research internship at the Qualcomm Institute working on head scan acoustics systems.</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Tab 2: Publications -->
+        <section id="publications" class="tab-content">
+          <h2 class="section-heading">Publications</h2>
+          
+          <div class="publication-card">
+            <h3 class="pub-title">
+              "Reducing the Carbon Footprint of EdTech with Repurposed Devices"
+            </h3>
+            <p class="pub-authors">
+              J. Switzer, S. Katel, J. C. Lee, <strong>A. R. A. Rajan</strong>, R. Kastner, P. Pannuto.
+            </p>
+            <p class="pub-venue">
+              IEEE 15th International Green and Sustainable Computing Conference (IGSC), 2024
+            </p>
+            <div class="pub-links">
+              <a href="https://ieeexplore.ieee.org/document/10765841" class="btn-pub btn-pub-primary" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Paper
+              </a>
+              <button onclick="toggleBibtex('bib-igsc')" class="btn-pub btn-pub-secondary">
+                <i class="fa-solid fa-code"></i> BibTeX
+              </button>
+            </div>
+            
+            <!-- Hidden BibTeX panel -->
+            <pre id="bib-igsc" class="bibtex-box">@inproceedings{switzer2024reducing,
+  title={Reducing the Carbon Footprint of EdTech with Repurposed Devices},
+  author={Switzer, John and Katel, Suman and Lee, Jun Chul and Rajan, Ashwin Rohit Alagiri and Kastner, Ryan and Pannuto, Pat},
+  booktitle={IEEE 15th International Green and Sustainable Computing Conference (IGSC)},
+  pages={1--8},
+  year={2024},
+  organization={IEEE}
+}</pre>
+          </div>
+        </section>
+
+        <!-- Tab 3: Experience -->
+        <section id="experience" class="tab-content">
+          <h2 class="section-heading">Experience</h2>
+          
+          <div class="experience-card">
+            <h3 class="exp-role">Graduate Research Assistant</h3>
+            <div class="exp-org">ACT Lab, UCSD <span>Sept 2023 - Present</span></div>
+            <p class="exp-details">
+              Designed and simulated custom hardware accelerators for robotics and secure LLM inference workloads. Gained experience in full-stack hardware-software system design, co-design methodologies, and hardware simulation performance analysis.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <h3 class="exp-role">Graduate Teaching Assistant & Researcher</h3>
+            <div class="exp-org">Kastner Research Group, UCSD <span>Jan 2023 - June 2024</span></div>
+            <p class="exp-details">
+              Developed curriculum materials for parallel programming. Served as TA for CSE 160 (Parallel Computing) under Prof. Ryan Kastner. Contributed to research on sustainable computing, published at IGSC-24, conducting detailed power, carbon, and hardware performance benchmarks.
+            </p>
+          </div>
+
+          <div class="experience-card">
+            <h3 class="exp-role">Graduate Research Intern</h3>
+            <div class="exp-org">Qualcomm Institute, UCSD <span>Mar 2023 - Sept 2023</span></div>
+            <p class="exp-details">
+              Developed systems for computing Head-Related Transfer Function (HRTF) models based on 3D Head-and-Torso scans. Tested models in an immersive AR/VR system coupled with real-time acoustic ray tracing engines.
+            </p>
+          </div>
+        </section>
+
+        <!-- Tab 4: Projects -->
+        <section id="projects" class="tab-content">
+          <h2 class="section-heading">Selected Projects</h2>
+          
+          <div class="projects-grid">
+            
+            <div class="project-card">
+              <div>
+                <h3 class="proj-title">Autonomous UAV</h3>
+                <p class="proj-desc">
+                  Developed an autonomous unmanned aerial vehicle (UAV) utilising PX4 flight stacks and NVIDIA Jetson Nano platforms. Implemented real-time computer vision algorithms for obstacle avoidance, visual odometry, and SLAM.
+                </p>
+              </div>
+              <div class="proj-links">
+                <a href="https://github.com/rohitashwin/autonomous-uav/" class="btn-pub btn-pub-primary" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div>
+                <h3 class="proj-title">Relativity Simulator</h3>
+                <p class="proj-desc">
+                  A high-performance C++ based physical renderer for visualizing special relativistic physics phenomena (like Lorentz contraction, Doppler shifts, and light aberration) using ray-tracing techniques.
+                </p>
+              </div>
+              <div class="proj-links">
+                <a href="https://rohitashwin.github.io/Raytracing-Relativistic-Bodies/" class="btn-pub btn-pub-primary" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+    <!-- Window Footer representing the system tray signature -->
+    <footer class="window-footer">
+      <span>&copy; 2026 Ashwin Rohit Alagiri Rajan. All rights reserved.</span>
+      <span>System: <a href="https://www.ucsd.edu/" target="_blank">UC San Diego Computer Engineering</a></span>
+    </footer>
+
+  </div>
+
+  <!-- Smooth Tab Switching Script -->
+  <script>
+    // Tab switching logic
+    document.querySelectorAll('.aero-nav-item').forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Remove active class from all nav items
+        document.querySelectorAll('.aero-nav-item').forEach(nav => {
+          nav.classList.remove('active');
+        });
+        
+        // Add active class to clicked item
+        item.classList.add('active');
+        
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        
+        // Show target tab content
+        const targetTab = item.getAttribute('data-tab');
+        document.getElementById(targetTab).classList.add('active');
+      });
+    });
+
+    // BibTeX toggler
+    function toggleBibtex(id) {
+      const bibBox = document.getElementById(id);
+      if (bibBox.style.display === 'block') {
+        bibBox.style.display = 'none';
+      } else {
+        bibBox.style.display = 'block';
+      }
+    }
+  </script>
+</body>
 </html>
