@@ -3,340 +3,229 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ashwin Rohit Alagiri Rajan - Computer Engineering Student at UC San Diego. Research in computer architecture, robotics, and hardware acceleration.">
-  <title>Ashwin Rohit Alagiri Rajan | UCSD Academic Page</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-  
-  <!-- FontAwesome Icons for 2012-2016 style sidebar list accents -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <!-- Custom Styling (Aero / Aqua Theme) -->
-  <link rel="stylesheet" href="style.css?v=3">
+  <meta name="description" content="Ashwin Rohit Alagiri Rajan — Computer Engineering at UC San Diego. Computer architecture, hardware accelerators for robotics and secure LLM inference.">
+  <title>Ashwin Rohit Alagiri Rajan</title>
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
-  <!-- Animated Background Blobs (Aero Aurora) -->
-  <div class="bg-blob bg-blob-blue"></div>
-  <div class="bg-blob bg-blob-cyan"></div>
 
-  <!-- Window Wrapper imitating Aero / Aqua Glass Container -->
-  <div class="window-container">
-    
-    <!-- Header Block -->
-    <header class="window-header">
-      <div class="header-titles">
-        <h1 class="site-title">Ashwin Rohit Alagiri Rajan</h1>
-        <p class="site-subtitle">Computer Engineering @ UC San Diego</p>
+  <main class="page">
+
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="#about" class="nav-link active" data-section="about">About</a>
+        <a href="#publications" class="nav-link" data-section="publications">Publications</a>
+        <a href="#news" class="nav-link" data-section="news">Recent</a>
+        <a href="#experience" class="nav-link" data-section="experience">Experience</a>
       </div>
-
-      <!-- Live Digital Clock Widget on the top right -->
-      <div id="clock-widget" class="header-clock">
-        <i id="clock-icon" class="fa-regular fa-clock"></i> <span id="current-time"></span>
-      </div>
-    </header>
-
-    <!-- Aqua / Aero Glossy Gradient Navigation -->
-    <nav class="aero-navbar">
-      <a class="aero-nav-item active" data-tab="about">
-        <i class="fa-solid fa-user"></i> About
-      </a>
-      <a class="aero-nav-item" data-tab="publications">
-        <i class="fa-solid fa-book"></i> Publications
-      </a>
-      <a class="aero-nav-item" data-tab="experience">
-        <i class="fa-solid fa-briefcase"></i> Experience
-      </a>
-      <a class="aero-nav-item" data-tab="projects">
-        <i class="fa-solid fa-code"></i> Projects
-      </a>
     </nav>
 
-    <!-- Main Layout Grid -->
-    <div class="main-layout">
-      
-      <!-- Left Sidebar Column -->
-      <aside class="sidebar">
-        <!-- Profile Picture Panel -->
-        <div class="profile-wrapper">
-          <img src="assets/profile_picture.png" class="profile-img" alt="Ashwin Rohit Alagiri Rajan">
-        </div>
-        
-        <!-- Contact & Links List -->
-        <ul class="contact-list">
-          <li class="contact-item">
-            <i class="fa-solid fa-envelope"></i>
-            <a href="mailto:aalagiri@ucsd.edu">aalagiri@ucsd.edu</a>
-          </li>
-          <li class="contact-item">
-            <i class="fa-brands fa-github"></i>
-            <a href="https://www.github.com/rohitashwin" target="_blank" rel="noopener noreferrer">rohitashwin</a>
-          </li>
-          <li class="contact-item">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>La Jolla, California</span>
-          </li>
-        </ul>
+    <aside class="infobox">
+      <img src="assets/profile_picture.jpg" class="portrait" width="600" height="600" alt="Ashwin Rohit Alagiri Rajan">
+      <h2 class="label card-label">Info</h2>
+      <ul class="infotable">
+        <li>Computer Engineer</li>
+        <li>UC San Diego</li>
+        <li>La Jolla, California</li>
+      </ul>
+      <ul class="infotable infotable-links">
+        <li><a href="mailto:aalagiri@ucsd.edu">aalagiri@ucsd.edu</a></li>
+        <li><a href="https://www.github.com/rohitashwin" target="_blank" rel="noopener noreferrer">github.com/rohitashwin</a></li>
+        <li><a href="assets/resume.pdf" target="_blank">Download CV</a></li>
+      </ul>
+    </aside>
 
-        <!-- Download CV & Interests wrapper (supports flex positioning on mobile) -->
-        <div class="sidebar-actions-wrapper">
-          <!-- Download CV Action -->
-          <a href="assets/resume.pdf" class="btn-aqua" target="_blank">
-            <i class="fa-solid fa-file-pdf"></i> Download CV / Resume
-          </a>
+    <section class="section" id="about">
+      <div class="body">
+        <h1 class="name">Ashwin Rohit Alagiri Rajan</h1>
 
-          <!-- Research Interests Sidebar Block -->
-          <div class="sidebar-box">
-            <h4>Interests</h4>
-            <ul>
-              <li>Computer Architecture</li>
-              <li>Robotics</li>
-              <li>LLM Accelerators</li>
-            </ul>
-          </div>
-        </div>
-      </aside>
+        <p class="prose">
+          I study Computer Engineering at the University of California, San Diego, advised by <a href="https://cseweb.ucsd.edu/~hadi/" target="_blank" rel="noopener noreferrer">Prof. Hadi Esmaeilzadeh</a>. My research interests center on computer architecture, with a focus on acceleration for emerging workloads.
+        </p>
+      </div>
+    </section>
 
-      <!-- Right Main Content Panel -->
-      <main class="content-area">
-        
-        <!-- Tab 1: About Me -->
-        <section id="about" class="tab-content active">
-          <h2 class="section-heading">About Me</h2>
-          <p class="bio-text">
-            I am a student in Computer Engineering at the University of California, San Diego, advised by Prof. Hadi Esmaeilzadeh. My research interests center on computer architecture, with a particular focus on designing custom hardware accelerators for robotics and secure LLM inference, as well as repurposing old hardware to support sustainable, green computing.
+    <section class="section" id="publications">
+      <div class="body">
+        <h2 class="label">Publications</h2>
+
+        <article class="entry">
+          <h3 class="entry-title">IroKnight: Ownership-Preserving Neural Acceleration for Inference Serving</h3>
+          <p class="authors">H. Santhanam, <strong>A. R. A. Rajan</strong>, H. Esmaeilzadeh</p>
+          <p class="venue">53rd International Symposium on Computer Architecture (ISCA) &middot; June 2026</p>
+          <p class="actions">
+            <a href="https://iroknight.ai/iroknight-isca-2026.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+            <button type="button" class="linkish" onclick="toggleBibtex('bib-iroknight')" aria-expanded="false" aria-controls="bib-iroknight">BibTeX</button>
           </p>
+          <pre id="bib-iroknight" class="bibtex" hidden>@inproceedings{santhanam2026iroknight,
+  title={IroKnight: Ownership-Preserving Neural Acceleration
+         for Inference Serving},
+  author={Santhanam, Harsha and Alagiri Rajan, Ashwin Rohit and
+          Esmaeilzadeh, Hadi},
+  booktitle={International Symposium on Computer Architecture (ISCA)},
+  year={2026}
+}</pre>
+        </article>
 
-          <h2 class="section-heading" style="margin-top: 40px;">News</h2>
-          <ul class="news-list">
-            <li class="news-item">
-              <span class="news-date">Oct 2024</span>
-              <span class="news-desc">Presented our research paper <em>"Reducing the Carbon Footprint of EdTech with Repurposed Devices"</em> at the IEEE 15th International Green and Sustainable Computing Conference (IGSC) in Austin!</span>
-            </li>
-            <li class="news-item">
-              <span class="news-date">Jun 2024</span>
-              <span class="news-desc">Joined the ACT Lab at UC San Diego as a Researcher under the guidance of Prof. Hadi Esmaeilzadeh.</span>
-            </li>
-            <li class="news-item">
-              <span class="news-date">Jun 2023</span>
-              <span class="news-desc">Began research internship at the Qualcomm Institute working on head scan acoustics systems.</span>
-            </li>
-          </ul>
-        </section>
+        <article class="entry">
+          <h3 class="entry-title">Accelerator Polymorphism: Transcending Domain-Specific Architectures with Robotics</h3>
+          <p class="authors">H. Xu, S. Oh, Y. Lee, <strong>A. R. A. Rajan</strong>, R. Mahapatra, O. Patil, Y. Li, J. Park, H. Esmaeilzadeh</p>
+          <p class="venue">53rd International Symposium on Computer Architecture (ISCA) &middot; June 2026</p>
+          <p class="actions">
+            <a href="https://hanyax.github.io/files/morphatron-isca-2026.pdf" target="_blank" rel="noopener noreferrer">Paper</a>
+            <button type="button" class="linkish" onclick="toggleBibtex('bib-polymorphism')" aria-expanded="false" aria-controls="bib-polymorphism">BibTeX</button>
+          </p>
+          <pre id="bib-polymorphism" class="bibtex" hidden>@inproceedings{xu2026polymorphism,
+  title={Accelerator Polymorphism: Transcending Domain-Specific
+         Architectures with Robotics},
+  author={Xu, Hanyang and Oh, Seongryong and Lee, Yubin and
+          Alagiri Rajan, Ashwin Rohit and Mahapatra, Rohan and
+          Patil, Om and Li, Yuchuan and Park, Jongse and
+          Esmaeilzadeh, Hadi},
+  booktitle={International Symposium on Computer Architecture (ISCA)},
+  year={2026}
+}</pre>
+        </article>
 
-        <!-- Tab 2: Publications -->
-        <section id="publications" class="tab-content">
-          <h2 class="section-heading">Publications</h2>
-          
-          <div class="publication-card">
-            <h3 class="pub-title">
-              "Reducing the Carbon Footprint of EdTech with Repurposed Devices"
-            </h3>
-            <p class="pub-authors">
-              J. Switzer, S. Katel, J. C. Lee, <strong>A. R. A. Rajan</strong>, R. Kastner, P. Pannuto.
-            </p>
-            <p class="pub-venue">
-              IEEE 15th International Green and Sustainable Computing Conference (IGSC) &bull; Oct 22, 2024
-            </p>
-            <div class="pub-links">
-              <a href="https://ieeexplore.ieee.org/document/10765841" class="btn-pub btn-pub-primary" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Paper
-              </a>
-              <button onclick="toggleBibtex('bib-igsc')" class="btn-pub btn-pub-secondary">
-                <i class="fa-solid fa-code"></i> BibTeX
-              </button>
-            </div>
-            
-            <!-- Hidden BibTeX panel -->
-            <pre id="bib-igsc" class="bibtex-box">@inproceedings{switzer2024reducing,
+        <article class="entry">
+          <h3 class="entry-title">Reducing the Carbon Footprint of EdTech with Repurposed Devices</h3>
+          <p class="authors">J. Switzer, S. Katel, J. C. Lee, <strong>A. R. A. Rajan</strong>, R. Kastner, P. Pannuto</p>
+          <p class="venue">IEEE 15th International Green and Sustainable Computing Conference (IGSC) &middot; November 2024</p>
+          <p class="actions">
+            <a href="https://doi.org/10.1109/IGSC64514.2024.00020" target="_blank" rel="noopener noreferrer">Paper</a>
+            <button type="button" class="linkish" onclick="toggleBibtex('bib-igsc')" aria-expanded="false" aria-controls="bib-igsc">BibTeX</button>
+          </p>
+          <pre id="bib-igsc" class="bibtex" hidden>@inproceedings{switzer2024reducing,
   title={Reducing the Carbon Footprint of EdTech with Repurposed Devices},
-  author={Switzer, John and Katel, Suman and Lee, Jun Chul and Rajan, Ashwin Rohit Alagiri and Kastner, Ryan and Pannuto, Pat},
-  booktitle={IEEE 15th International Green and Sustainable Computing Conference (IGSC)},
-  pages={1--8},
+  author={Switzer, Jennifer and Katel, Subash and Lee, Jaemok Christian and
+          Alagiri Rajan, Ashwin Rohit and Kastner, Ryan and Pannuto, Pat},
+  booktitle={IEEE 15th International Green and Sustainable
+             Computing Conference (IGSC)},
+  pages={59--63},
   year={2024},
+  doi={10.1109/IGSC64514.2024.00020},
   organization={IEEE}
 }</pre>
-          </div>
-        </section>
+        </article>
+      </div>
+    </section>
 
-        <!-- Tab 3: Experience -->
-        <section id="experience" class="tab-content">
-          <h2 class="section-heading">Experience</h2>
-          
-          <div class="timeline-year">2024 - Present</div>
-          <div class="experience-card">
-            <h3 class="exp-role">Researcher</h3>
-            <div class="exp-org">ACT Lab, UCSD <span>Jul 2024 - Present</span></div>
-            <p class="exp-details">
-              Worked under Professor Hadi Esmaeilzadeh at the ACT Lab for robotics accelerator and Secure LLM Inference accelerator projects. Developed analytic and cycle-level simulator for systolic array based robotics workload accelerator. Architected visualization tools and GPU benchmarking scripts.
-            </p>
-          </div>
+    <section class="section" id="news">
+      <div class="body">
+        <h2 class="label">Recent</h2>
+        <ul class="news">
+          <li>
+            <span class="date">Jun 2026</span>
+            <span>Two papers &mdash; <em>IroKnight</em> and <em>Accelerator Polymorphism</em> &mdash; appeared at the 53rd International Symposium on Computer Architecture (ISCA) in Raleigh, North Carolina.</span>
+          </li>
+          <li>
+            <span class="date">Nov 2024</span>
+            <span>Presented <em>Reducing the Carbon Footprint of EdTech with Repurposed Devices</em> at the IEEE 15th International Green and Sustainable Computing Conference in Austin.</span>
+          </li>
+          <li>
+            <span class="date">Jun 2024</span>
+            <span>Joined the ACT Lab at UC San Diego as a Researcher, advised by Prof. Hadi Esmaeilzadeh.</span>
+          </li>
+          <li>
+            <span class="date">Jun 2023</span>
+            <span>Began a research internship at the Qualcomm Institute working on head-scan acoustics systems.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-          <div class="timeline-year">2024 - 2025</div>
-          <div class="experience-card">
-            <h3 class="exp-role">Undergraduate Researcher & Teaching Assistant</h3>
-            <div class="exp-org">Kastner Research Group, UCSD <span>Apr 2024 - Jan 2025</span></div>
-            <p class="exp-details">
-              Co-authored and published research on GPU workload performance on repurposed Android devices to reduce the carbon footprint of EdTech (published at IGSC/MICRO 2024). Modernized the CSE 160 (Parallel Programming) curriculum from CUDA to OpenCL. Served as Teaching Assistant in Winter 2025.
-            </p>
-          </div>
+    <section class="section" id="experience">
+      <div class="body">
+        <h2 class="label">Experience</h2>
 
-          <div class="timeline-year">2023 - 2024</div>
-          <div class="experience-card">
-            <h3 class="exp-role">Intern</h3>
-            <div class="exp-org">Qualcomm Institute, UCSD <span>Jun 2023 - Jun 2024</span></div>
-            <p class="exp-details">
-              Developed systems for computing Head-Related Transfer Function (HRTF) models based on 3D Head-and-Torso scans. Tested models in AR/VR setups, and initiated moving the audio raytracing system from CUDA to Apple Metal for better cross-platform compatibility.
-            </p>
-          </div>
-        </section>
+        <article class="entry">
+          <p class="date">Jul 2024 &mdash; Present</p>
+          <h3 class="entry-title">Researcher</h3>
+          <p class="org">ACT Lab, UC San Diego</p>
+          <p class="prose">
+            Working under Prof. Hadi Esmaeilzadeh on robotics accelerator and secure LLM inference accelerator projects. Developed analytic and cycle-level simulators for a systolic-array-based robotics workload accelerator, and architected the visualization tooling and GPU benchmarking scripts.
+          </p>
+        </article>
 
-        <!-- Tab 4: Projects -->
-        <section id="projects" class="tab-content">
-          <h2 class="section-heading">Selected Projects</h2>
-          
-          <div class="projects-grid">
-            
-            <div class="project-card">
-              <div>
-                <h3 class="proj-title">2D Systolic Array Accelerator</h3>
-                <p class="proj-desc">
-                  Architected a 2-bit/4-bit reconfigurable systolic array with a reconfigurable weight and output stationary setup. Trained and implemented 2-bit and 4-bit quantized (QAT) VGG-16 and BERT models for machine learning workloads.
-                </p>
-              </div>
-              <div class="proj-links">
-                <span class="btn-pub btn-pub-secondary" style="cursor: default;">
-                  <i class="fa-solid fa-microchip"></i> Hardware Design
-                </span>
-              </div>
-            </div>
+        <article class="entry">
+          <p class="date">Apr 2024 &mdash; Jan 2025</p>
+          <h3 class="entry-title">Undergraduate Researcher &amp; Teaching Assistant</h3>
+          <p class="org">Kastner Research Group, UC San Diego</p>
+          <p class="prose">
+            Co-authored and published research on GPU workload performance on repurposed Android devices to reduce the carbon footprint of EdTech. Modernized the CSE 160 (Parallel Programming) curriculum from CUDA to OpenCL, and served as Teaching Assistant in Winter 2025.
+          </p>
+        </article>
 
-            <div class="project-card">
-              <div>
-                <h3 class="proj-title">Autonomous UAV</h3>
-                <p class="proj-desc">
-                  Developed an autonomous unmanned aerial vehicle (UAV) utilising PX4 flight stacks and NVIDIA Jetson Nano platforms. Implemented real-time computer vision algorithms for obstacle avoidance, visual odometry, and SLAM.
-                </p>
-              </div>
-              <div class="proj-links">
-                <a href="https://github.com/rohitashwin/autonomous-uav/" class="btn-pub btn-pub-primary" target="_blank" rel="noopener noreferrer">
-                  <i class="fa-brands fa-github"></i> Code
-                </a>
-              </div>
-            </div>
+        <article class="entry">
+          <p class="date">Jun 2023 &mdash; Jun 2024</p>
+          <h3 class="entry-title">Intern</h3>
+          <p class="org">Qualcomm Institute, UC San Diego</p>
+          <p class="prose">
+            Developed systems for computing Head-Related Transfer Function (HRTF) models from 3D head-and-torso scans. Tested models in AR/VR setups and initiated the port of the audio raytracing system from CUDA to Apple Metal for cross-platform compatibility.
+          </p>
+        </article>
+      </div>
+    </section>
 
-            <div class="project-card">
-              <div>
-                <h3 class="proj-title">Relativity Simulator</h3>
-                <p class="proj-desc">
-                  A high-performance C++ based physical renderer for visualizing special relativistic physics phenomena (like Lorentz contraction, Doppler shifts, and light aberration) using ray-tracing techniques.
-                </p>
-              </div>
-              <div class="proj-links">
-                <a href="https://rohitashwin.github.io/Raytracing-Relativistic-Bodies/" class="btn-pub btn-pub-primary" target="_blank" rel="noopener noreferrer">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
-                </a>
-              </div>
-            </div>
+  </main>
 
-          </div>
-        </section>
-
-      </main>
-
+  <footer class="footer">
+    <div class="body">
+      <span>&copy; 2026 Ashwin Rohit Alagiri Rajan</span>
+      <span><a href="https://www.ucsd.edu/" target="_blank" rel="noopener noreferrer">UC San Diego</a> &middot; <span id="clock"></span></span>
     </div>
+  </footer>
 
-    <!-- Window Footer representing the system tray signature -->
-    <footer class="window-footer">
-      <span>&copy; 2026 Ashwin Rohit Alagiri Rajan. All rights reserved.</span>
-      <span>System: <a href="https://www.ucsd.edu/" target="_blank">UC San Diego Computer Engineering</a></span>
-    </footer>
-
-  </div>
-
-  <!-- Smooth Tab Switching Script -->
   <script>
-    // Tab switching logic
-    document.querySelectorAll('.aero-nav-item').forEach(item => {
-      item.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Remove active class from all nav items
-        document.querySelectorAll('.aero-nav-item').forEach(nav => {
-          nav.classList.remove('active');
-        });
-        
-        // Add active class to clicked item
-        item.classList.add('active');
-        
-        // Hide all tab contents
-        document.querySelectorAll('.tab-content').forEach(content => {
-          content.classList.remove('active');
-        });
-        
-        // Show target tab content
-        const targetTab = item.getAttribute('data-tab');
-        document.getElementById(targetTab).classList.add('active');
-      });
-    });
+    // Active section = the last one whose top has passed under the nav.
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = Array.from(document.querySelectorAll('.section'));
 
-    // BibTeX toggler
-    function toggleBibtex(id) {
-      const bibBox = document.getElementById(id);
-      if (bibBox.style.display === 'block') {
-        bibBox.style.display = 'none';
-      } else {
-        bibBox.style.display = 'block';
-      }
-    }
+    function updateActiveNav() {
+      const line = window.scrollY + 100;
+      let current = sections[0].id;
 
-    // Header clock update logic (Forces UCSD Pacific Time & Day/Night Themes)
-    function updateClock() {
-      const now = new Date();
-      const options = { 
-        timeZone: 'America/Los_Angeles',
-        month: 'short', 
-        day: '2-digit', 
-        year: 'numeric', 
-        hour: '2-digit', 
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true 
-      };
-      
-      const clockEl = document.getElementById('current-time');
-      if (clockEl) {
-        const formatted = now.toLocaleString('en-US', options);
-        clockEl.textContent = formatted.replace(',', ' -') + ' (UCSD)';
-      }
-
-      // Check the current hour in UCSD (Pacific Time, 24h format)
-      const ucsdHourStr = now.toLocaleTimeString('en-US', { 
-        timeZone: 'America/Los_Angeles', 
-        hour: '2-digit', 
-        hour12: false 
-      });
-      const hour = parseInt(ucsdHourStr, 10);
-      const isDay = hour >= 6 && hour < 18; // Day is 6:00 AM to 5:59 PM
-
-      const widgetEl = document.getElementById('clock-widget');
-      const iconEl = document.getElementById('clock-icon');
-
-      if (widgetEl && iconEl) {
-        if (isDay) {
-          widgetEl.classList.remove('night-theme');
-          widgetEl.classList.add('day-theme');
-          iconEl.className = 'fa-solid fa-sun';
-        } else {
-          widgetEl.classList.remove('day-theme');
-          widgetEl.classList.add('night-theme');
-          iconEl.className = 'fa-solid fa-moon';
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top + window.scrollY <= line) {
+          current = section.id;
         }
       }
+
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom) current = sections[sections.length - 1].id;
+
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.section === current);
+      });
     }
-    setInterval(updateClock, 1000);
+
+    updateActiveNav();
+    addEventListener('scroll', updateActiveNav, { passive: true });
+    addEventListener('resize', updateActiveNav);
+
+    function toggleBibtex(id) {
+      const box = document.getElementById(id);
+      const btn = document.querySelector('[aria-controls="' + id + '"]');
+      const showing = box.hasAttribute('hidden');
+      box.toggleAttribute('hidden', !showing);
+      btn.setAttribute('aria-expanded', String(showing));
+    }
+
+    function updateClock() {
+      const el = document.getElementById('clock');
+      if (!el) return;
+      el.textContent = new Date().toLocaleTimeString('en-US', {
+        timeZone: 'America/Los_Angeles',
+        hour: 'numeric',
+        minute: '2-digit'
+      }) + ' in La Jolla';
+    }
     updateClock();
+    setInterval(updateClock, 10000);
   </script>
 </body>
 </html>
