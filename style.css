@@ -243,48 +243,12 @@ body {
   border-bottom-color: var(--accent);
 }
 
-/* News ------------------------------------------------------------ */
-
-.news {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.9rem;
-}
-
-.news li {
-  display: grid;
-  grid-template-columns: 6.25rem 1fr;
-  gap: 1rem;
-  font-size: 1rem;
-  line-height: 1.55;
-  color: var(--ink-soft);
-}
-
-.news .date {
-  margin: 0;
-  padding-top: 0.16rem;
-}
-
-.news em {
-  color: var(--ink);
-}
-
 /* Entries --------------------------------------------------------- */
 
 .entry + .entry {
   margin-top: 1.6rem;
   padding-top: 1.6rem;
   border-top: 1px solid var(--rule-soft);
-}
-
-.date {
-  margin: 0 0 0.35rem 0;
-  font-size: 0.82rem;
-  letter-spacing: 0.02em;
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
 }
 
 .entry-title {
@@ -304,12 +268,6 @@ body {
 .authors strong {
   font-weight: 600;
   color: var(--ink);
-}
-
-.org {
-  margin: 0 0 0.85rem 0;
-  font-size: 0.94rem;
-  color: var(--muted);
 }
 
 .venue {
@@ -531,15 +489,6 @@ button:focus-visible {
 
   .entry-title {
     font-size: 1.1rem;
-  }
-
-  .news li {
-    grid-template-columns: 1fr;
-    gap: 0.2rem;
-  }
-
-  .news .date {
-    padding-top: 0;
   }
 
   .bibtex {
