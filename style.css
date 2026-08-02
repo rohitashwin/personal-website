@@ -15,7 +15,6 @@
 
   --measure: 33rem;
   --aside-col: 15.5rem;
-  --nav-col: 8.5rem;
   --gutter: 2.75rem;
   --page-pad: 2rem;
 
@@ -45,8 +44,8 @@ body {
 
 .page,
 .footer {
-  max-width: calc(var(--nav-col) + var(--measure) + var(--aside-col)
-                  + 2 * var(--gutter) + 2 * var(--page-pad));
+  max-width: calc(var(--measure) + var(--aside-col)
+                  + var(--gutter) + 2 * var(--page-pad));
   margin: 0 auto;
   padding-left: var(--page-pad);
   padding-right: var(--page-pad);
@@ -54,7 +53,7 @@ body {
 
 .page {
   display: grid;
-  grid-template-columns: var(--nav-col) minmax(0, var(--measure)) var(--aside-col);
+  grid-template-columns: minmax(0, var(--measure)) var(--aside-col);
   column-gap: var(--gutter);
   align-items: start;
   /* The tracks are fixed-width, so once a column is dropped they no
@@ -69,7 +68,7 @@ body {
    second row — leaving the rail's row only as tall as the card, so the
    rail would stop sticking partway down. */
 .main {
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 1;
   min-width: 0;
 }
@@ -95,90 +94,21 @@ body {
   min-width: 0;
 }
 
-/* Contents rail --------------------------------------------------- */
 
 /* Both columns beside the text sit in the same single row as .main, so
    the rail inherits that row's full height and its sticky child has the
    whole page to travel through. */
-.nav {
-  grid-column: 1;
-  grid-row: 1;
-  align-self: stretch;
-}
-
-.nav-inner {
-  position: sticky;
-  top: 3rem;
-  display: flex;
-  flex-direction: column;
-}
-
 /* Rail line and active marker are both anchored to x=0 and pulled back
    half their own width, so they stay concentric at any width. */
-.nav-inner::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: var(--rule);
-  transform: translateX(-50%);
-}
-
-.nav-link {
-  position: relative;
-  padding: 0.5rem 0 0.5rem 1.15rem;
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-.nav-link::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: transparent;
-  transform: translateX(-50%);
-  transition: background 0.15s ease;
-}
-
-.nav-link:hover {
-  color: var(--ink);
-}
-
-.nav-link.active {
-  color: var(--accent);
-}
-
-.nav-link.active::before {
-  background: var(--accent);
-}
-
 /* Info card ------------------------------------------------------- */
 
 .infobox {
-  grid-column: 3;
+  grid-column: 2;
   grid-row: 1;
   background: var(--box);
   border: 1px solid var(--rule);
   font-size: 0.94rem;
   line-height: 1.45;
-}
-
-/* Scoped so it outranks .label, which is defined further down */
-.infobox .card-label {
-  margin: 0;
-  padding: 0.62rem 1rem;
-  font-size: 0.74rem;
-  color: var(--muted);
 }
 
 .portrait {
@@ -340,14 +270,14 @@ body {
 
 .footer {
   display: grid;
-  grid-template-columns: var(--nav-col) minmax(0, var(--measure)) var(--aside-col);
+  grid-template-columns: minmax(0, var(--measure)) var(--aside-col);
   column-gap: var(--gutter);
   justify-content: center;
   padding-bottom: 3.5rem;
 }
 
 .footer .body {
-  grid-column: 2 / -1;
+  grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -388,56 +318,6 @@ button:focus-visible {
 
 /* Two columns — the rail folds into a sticky bar ------------------- */
 
-/* Two columns — the rail drops beneath the card, still on the right.
-   Row 2 takes 1fr so it absorbs the slack: the card keeps its natural
-   height in row 1 and the rail sits directly under it, while .main
-   spans both rows and is free of the card's height entirely. That
-   coupling is what used to push Publications down the page.
-   ------------------------------------------------------------------ */
-
-@media (max-width: 70rem) {
-  .page,
-  .footer {
-    grid-template-columns: minmax(0, var(--measure)) var(--aside-col);
-  }
-
-  .page {
-    grid-template-rows: auto 1fr;
-    padding-top: 2.5rem;
-  }
-
-  .main {
-    grid-column: 1;
-    grid-row: 1 / -1;
-  }
-
-  .infobox {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .nav {
-    grid-column: 2;
-    grid-row: 2;
-    align-self: start;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    margin-top: 1.75rem;
-    padding: 0.5rem 0;
-    background: var(--paper);
-  }
-
-  .nav-inner {
-    position: relative;
-    top: auto;
-  }
-
-  .footer .body {
-    grid-column: 1 / -1;
-  }
-}
-
 /* Phones — tabs on top, text, card last -----------------------------
    The portrait is dropped: at this width it was the largest thing on
    screen and pushed the name and bio below the fold. The card becomes
@@ -460,64 +340,22 @@ button:focus-visible {
 
   .page {
     grid-template-rows: none;
-    padding-top: 0;
+    padding-top: 2.5rem;
   }
 
   .footer {
     padding-bottom: 3rem;
   }
-
-  .nav {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: start;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    margin: 0 calc(-1 * var(--page-pad)) 1.75rem;
-    padding: 0 var(--page-pad);
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .nav-inner {
-    position: relative;
-    top: auto;
-    flex-direction: row;
-    gap: 1.5rem;
-    padding: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .nav-inner::-webkit-scrollbar,
-  .nav-inner::before,
-  .nav-link::before {
-    display: none;
-  }
-
-  .nav-link {
-    padding: 0.85rem 0 calc(0.85rem - 2px);
-    font-size: 0.72rem;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    transition: color 0.15s ease, border-color 0.15s ease;
-  }
-
-  .nav-link.active {
-    border-bottom-color: var(--accent);
-  }
-
   .main {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 1;
   }
 
   /* Facts and links sit side by side, split by a hairline, so the
      full-width card doesn't read as one long thin list. */
   .infobox {
     grid-column: 1;
-    grid-row: 3;
+    grid-row: 2;
     max-width: 100%;
     margin: 2.25rem 0 0 0;
     display: grid;
@@ -527,10 +365,6 @@ button:focus-visible {
 
   .portrait {
     display: none;
-  }
-
-  .infobox .card-label {
-    grid-column: 1 / -1;
   }
 
   .infotable {
