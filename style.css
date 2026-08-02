@@ -3,7 +3,7 @@
    System UI throughout; monospace only for the BibTeX block. */
 
 :root {
-  --paper:       #f7f8f9;
+  --paper:       #ffffff;
   --ink:         #15181b;
   --ink-soft:    #343a40;
   --muted:       #646b73;
@@ -57,11 +57,24 @@ body {
   grid-template-columns: var(--nav-col) minmax(0, var(--measure)) var(--aside-col);
   column-gap: var(--gutter);
   align-items: start;
+  /* The tracks are fixed-width, so once a column is dropped they no
+     longer fill the container — centre them instead of letting all the
+     slack collect on the right. */
+  justify-content: center;
   padding-top: 3.5rem;
 }
 
-.section {
+/* Explicit rows on all three: .main sits after .infobox in the DOM but
+   wants an earlier column, and sparse auto-placement would push it to a
+   second row — leaving the rail's row only as tall as the card, so the
+   rail would stop sticking partway down. */
+.main {
   grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+}
+
+.section {
   padding-bottom: 2rem;
   scroll-margin-top: 2rem;
 }
@@ -84,13 +97,12 @@ body {
 
 /* Contents rail --------------------------------------------------- */
 
+/* Both columns beside the text sit in the same single row as .main, so
+   the rail inherits that row's full height and its sticky child has the
+   whole page to travel through. */
 .nav {
   grid-column: 1;
-  /* `-1` would resolve against the explicit grid and these rows are all
-     implicit, so an oversized span is what reaches the last row. Stretch
-     is needed too, since the grid aligns to start. Without both, the
-     sticky rail has no room to travel and scrolls away. */
-  grid-row: 1 / span 50;
+  grid-row: 1;
   align-self: stretch;
 }
 
@@ -154,7 +166,7 @@ body {
 
 .infobox {
   grid-column: 3;
-  grid-row: 1 / span 2;
+  grid-row: 1;
   background: var(--box);
   border: 1px solid var(--rule);
   font-size: 0.94rem;
@@ -198,6 +210,15 @@ body {
 
 .infotable-links {
   border-top: 1px solid var(--rule);
+}
+
+/* Marks the links that open a new tab. FE0E forces text presentation,
+   so the arrow can't be substituted with an emoji glyph. */
+.infotable a[target="_blank"]::after {
+  content: "\2197\FE0E";
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  color: var(--muted);
 }
 
 /* Headings and body text ------------------------------------------ */
@@ -321,6 +342,7 @@ body {
   display: grid;
   grid-template-columns: var(--nav-col) minmax(0, var(--measure)) var(--aside-col);
   column-gap: var(--gutter);
+  justify-content: center;
   padding-bottom: 3.5rem;
 }
 
@@ -366,6 +388,13 @@ button:focus-visible {
 
 /* Two columns — the rail folds into a sticky bar ------------------- */
 
+/* Two columns — the rail drops beneath the card, still on the right.
+   Row 2 takes 1fr so it absorbs the slack: the card keeps its natural
+   height in row 1 and the rail sits directly under it, while .main
+   spans both rows and is free of the card's height entirely. That
+   coupling is what used to push Publications down the page.
+   ------------------------------------------------------------------ */
+
 @media (max-width: 70rem) {
   .page,
   .footer {
@@ -373,58 +402,35 @@ button:focus-visible {
   }
 
   .page {
-    padding-top: 0;
+    grid-template-rows: auto 1fr;
+    padding-top: 2.5rem;
   }
 
-  .nav {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    min-width: 0;    /* else the links widen the track instead of scrolling */
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    margin: 0 calc(-1 * var(--page-pad)) 2.5rem;
-    background: color-mix(in srgb, var(--paper) 92%, transparent);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .nav-inner {
-    position: static;
-    flex-direction: row;
-    gap: 1.75rem;
-    padding: 0 var(--page-pad);
-  }
-
-  .nav-inner::before {
-    display: none;
-  }
-
-  .nav-link {
-    padding: 0.95rem 0 calc(0.95rem - 2px);
-    font-size: 0.78rem;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    transition: color 0.15s ease, border-color 0.15s ease;
-  }
-
-  .nav-link::before {
-    display: none;
-  }
-
-  .nav-link.active {
-    border-bottom-color: var(--accent);
-  }
-
-  .section {
+  .main {
     grid-column: 1;
-    scroll-margin-top: 4rem;
+    grid-row: 1 / -1;
   }
 
   .infobox {
     grid-column: 2;
-    grid-row: 2 / span 2;
+    grid-row: 1;
+  }
+
+  .nav {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    margin-top: 1.75rem;
+    padding: 0.5rem 0;
+    background: var(--paper);
+  }
+
+  .nav-inner {
+    position: relative;
+    top: auto;
   }
 
   .footer .body {
@@ -432,9 +438,13 @@ button:focus-visible {
   }
 }
 
-/* Single column --------------------------------------------------- */
+/* Phones — tabs on top, text, card last -----------------------------
+   The portrait is dropped: at this width it was the largest thing on
+   screen and pushed the name and bio below the fold. The card becomes
+   reference material at the foot, and the rail flattens to tabs — a
+   vertical list pinned to a short viewport would eat too much of it. */
 
-@media (max-width: 56rem) {
+@media (max-width: 48rem) {
   :root {
     --page-pad: 1.25rem;
   }
@@ -445,7 +455,12 @@ button:focus-visible {
 
   .page,
   .footer {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, var(--measure));
+  }
+
+  .page {
+    grid-template-rows: none;
+    padding-top: 0;
   }
 
   .footer {
@@ -453,42 +468,86 @@ button:focus-visible {
   }
 
   .nav {
-    margin-bottom: 2rem;
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    margin: 0 calc(-1 * var(--page-pad)) 1.75rem;
+    padding: 0 var(--page-pad);
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
   }
 
   .nav-inner {
-    gap: 1rem;
+    position: relative;
+    top: auto;
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 0;
     overflow-x: auto;
     scrollbar-width: none;
   }
 
-  .nav-inner::-webkit-scrollbar {
+  .nav-inner::-webkit-scrollbar,
+  .nav-inner::before,
+  .nav-link::before {
     display: none;
   }
 
   .nav-link {
     padding: 0.85rem 0 calc(0.85rem - 2px);
     font-size: 0.72rem;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.15s ease, border-color 0.15s ease;
   }
 
-  #about {
-    padding-bottom: 1.75rem;
+  .nav-link.active {
+    border-bottom-color: var(--accent);
   }
 
+  .main {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  /* Facts and links sit side by side, split by a hairline, so the
+     full-width card doesn't read as one long thin list. */
   .infobox {
     grid-column: 1;
-    grid-row: auto;
-    max-width: 14rem;
-    margin-bottom: 2rem;
-    font-size: 0.85rem;
+    grid-row: 3;
+    max-width: 100%;
+    margin: 2.25rem 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 0.88rem;
+  }
+
+  .portrait {
+    display: none;
+  }
+
+  .infobox .card-label {
+    grid-column: 1 / -1;
+  }
+
+  .infotable {
+    padding: 0.8rem 0.9rem;
+  }
+
+  .infotable-links {
+    border-top: 0;
+    border-left: 1px solid var(--rule);
   }
 
   .name {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
 
   .entry-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .bibtex {
@@ -497,16 +556,7 @@ button:focus-visible {
   }
 
   .footer .body {
+    grid-column: 1;
     flex-direction: column;
-  }
-}
-
-@media (max-width: 26rem) {
-  .name {
-    font-size: 1.5rem;
-  }
-
-  .infobox {
-    max-width: 100%;
   }
 }
