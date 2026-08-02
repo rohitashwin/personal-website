@@ -5,22 +5,449 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Ashwin Rohit Alagiri Rajan — Computer Engineering at UC San Diego. Computer architecture, hardware accelerators for robotics and secure LLM inference.">
   <title>Ashwin Rohit Alagiri Rajan</title>
-  <link rel="icon" href="assets/favicon.ico?v=4" sizes="any">
-  <link rel="icon" href="assets/favicon-32.png?v=4" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+  <link rel="icon" href="assets/favicon.ico?v=5" sizes="any">
+  <link rel="icon" href="assets/favicon-32.png?v=5" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=5">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Inter is self-hosted and subset to the glyphs this page uses, so the
+       only blocking asset is same-origin and starts downloading during the
+       HTML parse. The stylesheet is inlined below for the same reason: one
+       page, one request, nothing to discover after first paint. -->
+  <link rel="preload" href="assets/inter.woff2?v=1" as="font" type="font/woff2" crossorigin>
 
-  <link rel="stylesheet" href="style.css?v=8">
+  <style>
+  /* Ashwin Rohit Alagiri Rajan — personal site.
+     Two columns: reading column, info card.
+     Inter throughout; monospace only for the BibTeX block. */
+
+  /* Variable font, weight axis clamped to the 400-600 the page actually
+     uses and the optical-size axis pinned at the body text size. */
+  @font-face {
+    font-family: "Inter";
+    src: url("assets/inter.woff2?v=1") format("woff2");
+    font-weight: 400 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --paper:       #ffffff;
+    --ink:         #15181b;
+    --ink-soft:    #343a40;
+    --muted:       #646b73;
+    --rule:        #dcdfe3;
+    --rule-soft:   #eaecef;
+    --accent:      #a04a1e;
+    --accent-soft: #faeee7;
+    --box:         #ffffff;
+
+    --measure: 33rem;
+    --aside-col: 15.5rem;
+    --gutter: 2.75rem;
+    --page-pad: 2rem;
+
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16.5px;
+    line-height: 1.52;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Page grid ------------------------------------------------------- */
+
+  .page,
+  .footer {
+    max-width: calc(var(--measure) + var(--aside-col)
+                    + var(--gutter) + 2 * var(--page-pad));
+    margin: 0 auto;
+    padding-left: var(--page-pad);
+    padding-right: var(--page-pad);
+  }
+
+  .page {
+    display: grid;
+    grid-template-columns: minmax(0, var(--measure)) var(--aside-col);
+    column-gap: var(--gutter);
+    align-items: start;
+    /* The tracks are fixed-width, so once a column is dropped they no
+       longer fill the container — centre them instead of letting all the
+       slack collect on the right. */
+    justify-content: center;
+    padding-top: 3.5rem;
+  }
+
+  /* Explicit rows on both: .main sits after .infobox in the DOM but
+     wants an earlier column, and sparse auto-placement would push it to a
+     second row. */
+  .main {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .section {
+    padding-bottom: 2rem;
+    scroll-margin-top: 2rem;
+  }
+
+  .section + .section {
+    padding-top: 2rem;
+  }
+
+  #publications {
+    padding-top: 0;    /* runs straight on from the bio */
+  }
+
+  #about {
+    padding-bottom: 2.25rem;
+  }
+
+  .body {
+    min-width: 0;
+  }
+
+  /* Info card ------------------------------------------------------- */
+
+  .infobox {
+    grid-column: 2;
+    grid-row: 1;
+    background: var(--box);
+    border: 1px solid var(--rule);
+    font-size: 0.94rem;
+    line-height: 1.45;
+  }
+
+  /* <picture> is only there to choose the format and to spare phones a
+     download; it shouldn't take part in the layout itself. */
+  .infobox picture {
+    display: block;
+  }
+
+  .portrait {
+    display: block;
+    width: 100%;
+    height: auto;      /* lets aspect-ratio beat the width/height attributes */
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .infotable {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    list-style: none;
+    display: grid;
+    gap: 0.5rem;
+    color: var(--ink-soft);
+  }
+
+  .infotable li {
+    overflow-wrap: anywhere;
+  }
+
+  /* Location tucks up under the institution as one affiliation block */
+  .infotable:not(.infotable-links) li:last-child {
+    margin-top: -0.35rem;
+  }
+
+  .infotable-links {
+    border-top: 1px solid var(--rule);
+  }
+
+  /* Marks the links that open a new tab. FE0E forces text presentation,
+     so the arrow can't be substituted with an emoji glyph. */
+  .infotable a[target="_blank"]::after {
+    content: "\2197\FE0E";
+    margin-left: 0.3em;
+    font-size: 0.85em;
+    color: var(--muted);
+  }
+
+  /* Headings and body text ------------------------------------------ */
+
+  .name {
+    margin: 0 0 1.3rem 0;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+    font-size: 1.95rem;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  .label {
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .prose {
+    margin: 0 0 1.4rem 0;
+    color: var(--ink-soft);
+  }
+
+  .infotable a,
+  .prose a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .infotable a:hover,
+  .prose a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* Entries --------------------------------------------------------- */
+
+  .entry + .entry {
+    margin-top: 1.6rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  .entry-title {
+    margin: 0 0 0.3rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-wrap: balance;
+  }
+
+  .authors {
+    margin: 0 0 0.2rem 0;
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+  }
+
+  .authors strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .venue {
+    margin: 0 0 1rem 0;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  .actions {
+    display: flex;
+    gap: 1.25rem;
+    margin: 1rem 0 0 0;
+    font-size: 0.85rem;
+    letter-spacing: 0.01em;
+  }
+
+  .venue .tag {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.05rem 0.5rem;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-style: normal;
+    color: var(--muted);
+  }
+
+  .actions a,
+  .linkish {
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid var(--accent-soft);
+    background: none;
+    font: inherit;
+    color: var(--accent);
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+  }
+
+  .actions a:hover,
+  .linkish:hover {
+    border-bottom-color: var(--accent);
+  }
+
+  .bibtex {
+    margin: 1.25rem 0 0 0;
+    padding: 1rem 1.125rem;
+    background: var(--accent-soft);
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  /* Footer ---------------------------------------------------------- */
+
+  .footer {
+    display: grid;
+    grid-template-columns: minmax(0, var(--measure)) var(--aside-col);
+    column-gap: var(--gutter);
+    justify-content: center;
+    padding-bottom: 3.5rem;
+  }
+
+  .footer .body {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .footer a {
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .footer a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    * {
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Phones — text, then the card ------------------------------------
+     The portrait is dropped: at this width it was the largest thing on
+     screen and pushed the name and bio below the fold. The card becomes
+     reference material at the foot. */
+
+  @media (max-width: 48rem) {
+    :root {
+      --page-pad: 1.25rem;
+    }
+
+    body {
+      font-size: 16px;
+    }
+
+    .page,
+    .footer {
+      grid-template-columns: minmax(0, var(--measure));
+    }
+
+    .page {
+      grid-template-rows: none;
+      padding-top: 2.5rem;
+    }
+
+    .footer {
+      padding-bottom: 3rem;
+    }
+
+    .main {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    /* Facts and links sit side by side, split by a hairline, so the
+       full-width card doesn't read as one long thin list. */
+    .infobox {
+      grid-column: 1;
+      grid-row: 2;
+      max-width: 100%;
+      margin: 2.25rem 0 0 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      font-size: 0.88rem;
+    }
+
+    .portrait,
+    .infobox picture {
+      display: none;
+    }
+
+    .infotable {
+      padding: 0.8rem 0.9rem;
+    }
+
+    .infotable-links {
+      border-top: 0;
+      border-left: 1px solid var(--rule);
+    }
+
+    .name {
+      font-size: 1.6rem;
+    }
+
+    .entry-title {
+      font-size: 1.05rem;
+    }
+
+    .bibtex {
+      font-size: 0.6rem;
+      padding: 0.85rem;
+    }
+
+    .footer .body {
+      grid-column: 1;
+      flex-direction: column;
+    }
+  }
+  </style>
 </head>
 <body>
 
   <main class="page">
 
     <aside class="infobox">
-      <img src="assets/profile_picture.jpg" class="portrait" width="600" height="600" alt="Ashwin Rohit Alagiri Rajan">
+      <picture>
+        <!-- Phones hide the portrait, so hand them a source that costs
+             nothing rather than a file they download and discard. -->
+        <source media="(max-width: 48rem)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        <source type="image/webp" srcset="assets/profile.webp?v=1">
+        <img src="assets/profile.jpg?v=1" class="portrait" width="496" height="496" alt="Ashwin Rohit Alagiri Rajan" decoding="async">
+      </picture>
       <ul class="infotable">
         <li>Computer Science and Engineering</li>
         <li>UC San Diego</li>
@@ -184,9 +611,11 @@
         hour: 'numeric',
         minute: '2-digit'
       }) + ' in La Jolla';
+      /* The readout only has minute resolution, so wake on the minute
+         boundary instead of polling every few seconds. */
+      setTimeout(updateClock, 60000 - (Date.now() % 60000));
     }
     updateClock();
-    setInterval(updateClock, 10000);
   </script>
 
   <script defer src="/_vercel/insights/script.js"></script>
