@@ -236,6 +236,20 @@ body {
   letter-spacing: 0.01em;
 }
 
+.venue .tag {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.05rem 0.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-style: normal;
+  color: var(--muted);
+}
+
 .actions a,
 .linkish {
   padding: 0;
