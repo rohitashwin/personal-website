@@ -1,0 +1,192 @@
+/* Shared stylesheet for the secondary pages (about, contact, privacy, 404).
+
+   The homepage keeps its stylesheet inlined — it is the page whose first
+   paint matters, and it is a single request by design. These pages are
+   low-traffic reference material, so they link a cached, immutable file
+   instead of carrying a fifth copy of the same rules. Tokens, type scale
+   and hairlines are the homepage's; keep them in step. */
+
+@font-face {
+  font-family: "Inter";
+  src: url("inter.woff2?v=1") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --paper:       #ffffff;
+  --ink:         #15181b;
+  --ink-soft:    #343a40;
+  --muted:       #646b73;
+  --rule:        #dcdfe3;
+  --rule-soft:   #eaecef;
+  --accent:      #a04a1e;
+
+  --measure: 33rem;
+  --page-pad: 2rem;
+
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16.5px;
+  line-height: 1.52;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page,
+.footer {
+  max-width: calc(var(--measure) + 2 * var(--page-pad));
+  margin: 0 auto;
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+}
+
+.page {
+  padding-top: 3.5rem;
+}
+
+/* Back link sits above the title, in the muted register of the footer. */
+.crumb {
+  margin: 0 0 1.75rem 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.name {
+  margin: 0 0 1.3rem 0;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 1.95rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+
+.label {
+  margin: 2.25rem 0 1.1rem 0;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.prose {
+  margin: 0 0 1.4rem 0;
+  color: var(--ink-soft);
+}
+
+.list {
+  margin: 0 0 1.4rem 0;
+  padding-left: 1.1rem;
+  color: var(--ink-soft);
+}
+
+.list li {
+  margin-bottom: 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.updated {
+  margin: 2rem 0 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.prose a,
+.list a,
+.crumb a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.crumb a {
+  color: var(--muted);
+}
+
+.prose a:hover,
+.list a:hover,
+.crumb a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* The hairline belongs to the inner row so it spans the reading column
+   rather than the padded box. */
+.footer {
+  margin-top: 3rem;
+  padding-bottom: 3.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.footer-inner {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.footer a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.footer a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 48rem) {
+  :root {
+    --page-pad: 1.25rem;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .page {
+    padding-top: 2.5rem;
+  }
+
+  .name {
+    font-size: 1.6rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,15 @@
+# https://www.ashwinrohit.com/robots.txt
+# A five-page personal academic site. Crawling and machine reading are welcome;
+# there is nothing here that is private, paywalled or generated on the fly.
+
+User-agent: *
+Allow: /
+
+# Markdown twins of every page, and the guidance file for agents:
+#   https://www.ashwinrohit.com/llms.txt
+# Screening a candidate? The brief for you is at
+#   https://www.ashwinrohit.com/hiring.md
+# Sending Accept: text/markdown to any HTML URL returns the same page as
+# markdown, with Vary: Accept set.
+
+Sitemap: https://www.ashwinrohit.com/sitemap.xml

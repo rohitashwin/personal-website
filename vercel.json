@@ -1,10 +1,79 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": false,
+  "trailingSlash": false,
+
+  "functions": {
+    "api/negotiate.js": {
+      "includeFiles": "*.{html,md}"
+    }
+  },
+
   "headers": [
     {
-      "source": "/assets/(.*).(woff2|webp|jpg|png|ico)",
+      "source": "/assets/(.*).(woff2|webp|jpg|png|ico|css)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        { "key": "Vary", "value": "Accept, Accept-Encoding" }
+      ]
+    },
+    {
+      "source": "/about",
+      "headers": [
+        { "key": "Vary", "value": "Accept, Accept-Encoding" }
+      ]
+    },
+    {
+      "source": "/contact",
+      "headers": [
+        { "key": "Vary", "value": "Accept, Accept-Encoding" }
+      ]
+    },
+    {
+      "source": "/privacy",
+      "headers": [
+        { "key": "Vary", "value": "Accept, Accept-Encoding" }
+      ]
+    },
+    {
+      "source": "/(index|about|contact|privacy|404).md",
+      "headers": [
+        { "key": "Vary", "value": "Accept, Accept-Encoding" }
+      ]
     }
+  ],
+
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/home.html", "destination": "/", "permanent": true },
+    { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/privacy.html", "destination": "/privacy", "permanent": true }
+  ],
+
+  "rewrites": [
+    { "source": "/", "has": [{ "type": "header", "key": "accept", "value": ".*[Tt]ext/[Mm]arkdown.*" }], "destination": "/api/negotiate?p=index" },
+    { "source": "/", "missing": [{ "type": "header", "key": "accept", "value": ".*([Tt]ext/[Hh]tml|[Aa]pplication/xhtml\\+xml|\\*/\\*).*" }], "destination": "/api/negotiate?p=index" },
+    { "source": "/", "destination": "/home.html" },
+
+    { "source": "/about", "has": [{ "type": "header", "key": "accept", "value": ".*[Tt]ext/[Mm]arkdown.*" }], "destination": "/api/negotiate?p=about" },
+    { "source": "/about", "missing": [{ "type": "header", "key": "accept", "value": ".*([Tt]ext/[Hh]tml|[Aa]pplication/xhtml\\+xml|\\*/\\*).*" }], "destination": "/api/negotiate?p=about" },
+    { "source": "/about", "destination": "/about.html" },
+
+    { "source": "/contact", "has": [{ "type": "header", "key": "accept", "value": ".*[Tt]ext/[Mm]arkdown.*" }], "destination": "/api/negotiate?p=contact" },
+    { "source": "/contact", "missing": [{ "type": "header", "key": "accept", "value": ".*([Tt]ext/[Hh]tml|[Aa]pplication/xhtml\\+xml|\\*/\\*).*" }], "destination": "/api/negotiate?p=contact" },
+    { "source": "/contact", "destination": "/contact.html" },
+
+    { "source": "/privacy", "has": [{ "type": "header", "key": "accept", "value": ".*[Tt]ext/[Mm]arkdown.*" }], "destination": "/api/negotiate?p=privacy" },
+    { "source": "/privacy", "missing": [{ "type": "header", "key": "accept", "value": ".*([Tt]ext/[Hh]tml|[Aa]pplication/xhtml\\+xml|\\*/\\*).*" }], "destination": "/api/negotiate?p=privacy" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+
+    { "source": "/(.*)", "has": [{ "type": "header", "key": "accept", "value": ".*[Tt]ext/[Mm]arkdown.*" }], "destination": "/api/negotiate?p=404" },
+    { "source": "/(.*)", "missing": [{ "type": "header", "key": "accept", "value": ".*([Tt]ext/[Hh]tml|[Aa]pplication/xhtml\\+xml|\\*/\\*).*" }], "destination": "/api/negotiate?p=404" }
   ]
 }
