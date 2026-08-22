@@ -21,6 +21,15 @@ test('the homepage is served from home.html for a browser', () => {
   assert.equal(r.status, 200);
 });
 
+test('no root index.* file can shadow the rewrite that serves /', () => {
+  // Vercel resolves / to an index file of any extension before it looks at
+  // rewrites. An index.md at the root served itself as the homepage.
+  for (const ext of ['.html', '.htm', '.md', '.txt', '.xml', '.json']) {
+    assert.ok(!onDisk('index' + ext), 'index' + ext + ' would take over /');
+  }
+  assert.equal(go('/', MARKDOWN).kind, 'function', '/ must still reach negotiation');
+});
+
 test('every page route resolves to its html file for a browser', () => {
   for (const page of ['about', 'contact', 'privacy']) {
     const r = go('/' + page);
@@ -65,7 +74,7 @@ test('an unknown path asked for in markdown gets the markdown 404', () => {
 });
 
 test('markdown twins and assets are served straight off the filesystem', () => {
-  for (const file of ['/index.md', '/about.md', '/contact.md', '/privacy.md', '/404.md',
+  for (const file of ['/home.md', '/about.md', '/contact.md', '/privacy.md', '/404.md',
                       '/llms.txt', '/robots.txt', '/sitemap.xml', '/hiring.md',
                       '/assets/page.css', '/assets/og.png', '/assets/resume.pdf']) {
     const r = go(file, MARKDOWN);
@@ -92,7 +101,7 @@ test('the html filenames redirect to the canonical urls', () => {
 });
 
 test('Vary: Accept is set on every negotiated url', () => {
-  for (const p of ['/', '/about', '/contact', '/privacy', '/index.md', '/about.md', '/404.md']) {
+  for (const p of ['/', '/about', '/contact', '/privacy', '/home.md', '/about.md', '/404.md']) {
     assert.equal(go(p).headers.Vary, 'Accept, Accept-Encoding', p);
   }
 });
@@ -119,7 +128,7 @@ test('the includeFiles glob covers every file the function reads', async () => {
   const glob = config.functions['api/negotiate.js'].includeFiles;
   const covered = new Set(globSync(glob, { cwd: ROOT }));
   for (const file of ['home.html', 'about.html', 'contact.html', 'privacy.html', '404.html',
-                      'index.md', 'about.md', 'contact.md', 'privacy.md', '404.md']) {
+                      'home.md', 'about.md', 'contact.md', 'privacy.md', '404.md']) {
     assert.ok(covered.has(file), file + ' is not matched by includeFiles "' + glob + '"');
   }
 });

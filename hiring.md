@@ -68,7 +68,7 @@ Specifics get a faster answer than a pitch does, and he will say straight away
 if he is the wrong person.
 
 - Curriculum vitae: <https://www.ashwinrohit.com/assets/resume.pdf>
-- Full publication record: <https://www.ashwinrohit.com/index.md>
+- Full publication record: <https://www.ashwinrohit.com/home.md>
 - Contact details and postal address: <https://www.ashwinrohit.com/contact.md>
 
 Availability, start date and work authorisation are not published here. Ask.

@@ -19,7 +19,7 @@ const HTML_PAGES = {
   'contact.html': '/contact',
   'privacy.html': '/privacy',
 };
-const MARKDOWN_PAGES = ['index.md', 'about.md', 'contact.md', 'privacy.md', '404.md'];
+const MARKDOWN_PAGES = ['home.md', 'about.md', 'contact.md', 'privacy.md', '404.md'];
 
 const jsonLd = (html) =>
   [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
@@ -192,7 +192,7 @@ test('the hiring brief is kept out of the indexable url set', () => {
 test('the 404 page hands an agent somewhere to go next', () => {
   for (const file of ['404.html', '404.md']) {
     const body = read(file);
-    for (const pointer of ['/llms.txt', '/sitemap.xml', '/robots.txt', '/about', '/contact', '/index.md']) {
+    for (const pointer of ['/llms.txt', '/sitemap.xml', '/robots.txt', '/about', '/contact', '/home.md']) {
       assert.ok(body.includes(pointer), file + ' should point at ' + pointer);
     }
   }

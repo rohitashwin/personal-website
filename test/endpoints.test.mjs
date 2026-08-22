@@ -87,7 +87,7 @@ test('a nonexistent path returns a real 404 with a recoverable body', async () =
   const res = await get('/some-path-that-does-not-exist', BROWSER);
   assert.equal(res.status, 404);
   const body = await res.text();
-  for (const pointer of ['/llms.txt', '/sitemap.xml', '/about', '/contact', '/index.md']) {
+  for (const pointer of ['/llms.txt', '/sitemap.xml', '/about', '/contact', '/home.md']) {
     assert.ok(body.includes(pointer), '404 body should point at ' + pointer);
   }
 });
@@ -106,7 +106,7 @@ test('the machine-readable files are served', async () => {
     ['/robots.txt', /^text\/plain/, /Sitemap: https:\/\/www\.ashwinrohit\.com\/sitemap\.xml/],
     ['/sitemap.xml', /xml/, /<urlset/],
     ['/llms.txt', /^text\//, /^# Ashwin Rohit Alagiri Rajan/m],
-    ['/index.md', /^text\/markdown/, /^# Ashwin Rohit Alagiri Rajan/m],
+    ['/home.md', /^text\/markdown/, /^# Ashwin Rohit Alagiri Rajan/m],
     ['/about.md', /^text\/markdown/, /^# About/m],
     ['/contact.md', /^text\/markdown/, /^# Contact/m],
     ['/privacy.md', /^text\/markdown/, /^# Privacy/m],

@@ -18,7 +18,7 @@ const { selectMediaType } = require('./_negotiate.js');
 
 // Allowlist, so the `p` parameter can never reach outside these four pages.
 const PAGES = {
-  index:   { html: 'home.html',    markdown: 'index.md',   status: 200 },
+  index:   { html: 'home.html',    markdown: 'home.md',   status: 200 },
   about:   { html: 'about.html',   markdown: 'about.md',   status: 200 },
   contact: { html: 'contact.html', markdown: 'contact.md', status: 200 },
   privacy: { html: 'privacy.html', markdown: 'privacy.md', status: 200 },

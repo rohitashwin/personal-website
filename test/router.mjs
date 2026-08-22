@@ -19,6 +19,8 @@ import path from 'node:path';
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const config = JSON.parse(readFileSync(path.join(ROOT, 'vercel.json'), 'utf8'));
 
+const INDEX_EXTENSIONS = ['.html', '.htm', '.md', '.txt', '.xml', '.json'];
+
 function sourceMatches(source, pathname) {
   const match = new RegExp('^' + source + '$').exec(pathname);
   return match ? match.slice(1) : null;
@@ -77,8 +79,17 @@ export function resolve(pathname, headers, fileExists) {
     }
   }
 
-  if (fileExists(pathname.slice(1))) {
-    return { kind: 'file', file: pathname.slice(1), status: 200, headers: extra };
+  // Vercel's filesystem phase resolves a directory path to an index file of
+  // any extension, not just index.html — which is how index.md once shadowed
+  // the rewrite that serves / from home.html.
+  const candidates = pathname.endsWith('/')
+    ? INDEX_EXTENSIONS.map((ext) => pathname.slice(1) + 'index' + ext)
+    : [pathname.slice(1)];
+
+  for (const candidate of candidates) {
+    if (fileExists(candidate)) {
+      return { kind: 'file', file: candidate, status: 200, headers: extra };
+    }
   }
 
   for (const rule of config.rewrites ?? []) {

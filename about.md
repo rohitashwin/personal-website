@@ -27,7 +27,7 @@ its speed. *Reducing the Carbon Footprint of EdTech with Repurposed Devices*
 (IGSC 2024) looked at whether retired consumer devices can carry real
 educational workloads instead of being replaced, and what that substitution
 actually saves. The publication list, with papers and BibTeX, is on the
-[home page](https://www.ashwinrohit.com/index.md).
+[home page](https://www.ashwinrohit.com/home.md).
 
 ## Teaching and writing
 

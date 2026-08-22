@@ -41,7 +41,7 @@
       ]
     },
     {
-      "source": "/(index|about|contact|privacy|404).md",
+      "source": "/(home|about|contact|privacy|404).md",
       "headers": [
         { "key": "Vary", "value": "Accept, Accept-Encoding" }
       ]
