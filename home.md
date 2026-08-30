@@ -93,7 +93,7 @@ November 2024.
   [Course page](https://cseweb.ucsd.edu/~viscomp/classes/cse168/sp25/info.html)
 - **Getting Started with Metal C++** — Article, Medium, March 2025.
   [Article](https://medium.com/@ashwinalra/getting-started-with-metal-cpp-5f21423ed72a)
-- **Open-Source Parallel Programming Curriculum** — Talk and teaching,
+- **Open Source Parallel Programming talk by Prof. Kastner** — Talk, Teaching,
   Qualcomm Platforms Symposium, May 2024.
   [Video](https://www.youtube.com/watch?v=V-9ennYH39Y)
 - **Qualcomm Institute internship trains students for careers in the sonic

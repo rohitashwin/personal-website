@@ -31,8 +31,9 @@ actually saves. The publication list, with papers and BibTeX, is on the
 
 ## Teaching and writing
 
-I helped build and release an open-source parallel programming curriculum,
-which I presented at the Qualcomm Platforms Symposium in 2024. I also write
+I helped build and release an open-source parallel programming curriculum;
+Prof. Ryan Kastner presented it in a talk at the Qualcomm Platforms Symposium
+in 2024. I also write
 occasionally about the parts of systems programming that are underdocumented —
 a walkthrough of [getting started with Metal C++](https://medium.com/@ashwinalra/getting-started-with-metal-cpp-5f21423ed72a),
 for instance. My graphics work includes a relativistic black hole ray tracer

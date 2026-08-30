@@ -36,8 +36,9 @@ record. Neither paper is an incremental result.
 
 ## Why the range is the story
 
-The same person who writes the architecture papers also wrote, taught and
-[presented an open-source parallel programming curriculum](https://www.youtube.com/watch?v=V-9ennYH39Y)
+The same person who writes the architecture papers also wrote and taught an
+open-source parallel programming curriculum,
+[presented by Prof. Ryan Kastner](https://www.youtube.com/watch?v=V-9ennYH39Y)
 at the Qualcomm Platforms Symposium, and shipped a
 [ray tracer that integrates null geodesics through curved spacetime](https://rohitashwin.github.io/Raytracing-Relativistic-Bodies/),
 picked as a best final project in UC San Diego's advanced rendering course.
